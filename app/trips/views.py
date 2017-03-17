@@ -13,7 +13,7 @@ def index(request):
         data['trips'].append({
             'id': trip.pk,
             'name': trip.name,
-            'itineraries': '/trips/{}/itineraries'.format(trip.pk)
+            'itineraries_url': '/trips/{}/itineraries'.format(trip.pk)
         })
     return JsonResponse(data)
 
