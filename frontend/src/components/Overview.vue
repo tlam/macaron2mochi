@@ -1,10 +1,12 @@
 <template>
 <div v-if="trip">
-  <h3>Trip Overview - {{trip.name}}</h3>
+  <h3>Trip Overview - {{trip.name}} <span class="glyphicon glyphicons-plate-of-food"></span></h3>
   <ul>
-    <li v-for="itinerary in trip.itineraries">
-      {{itinerary.name}}
-    </li>
+    <div v-for="groupItinerary in trip.itineraries">
+      <li v-for="itinerary in groupItinerary">
+        {{itinerary.name}}
+      </li>
+    </div>
   </ul>
 </div>
 </template>

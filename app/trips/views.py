@@ -27,6 +27,7 @@ def itineraries(request, trip_id):
     }
     date_format = '%a, %b %d'
     time_format = '%H:%M'
+    itineraries = []
     for itinerary in trip.itineraries.all():
         activities = []
         for activity in itinerary.activities.all():
@@ -38,10 +39,18 @@ def itineraries(request, trip_id):
                 'end_time': activity.end_time.strftime(time_format),
                 'url': reverse('admin:activities_activity_change', args=(activity.pk,))
             })
-        data['itineraries'].append({
+
+        itineraries.append({
             'id': itinerary.id,
             'name': itinerary.name,
             'date': itinerary.date.strftime(date_format),
             'activities': activities,
         })
+        if len(itineraries) == 6:
+            data['itineraries'].append(itineraries)
+            itineraries = []
+
+    if itineraries:
+        data['itineraries'].append(itineraries)
+
     return JsonResponse(data)

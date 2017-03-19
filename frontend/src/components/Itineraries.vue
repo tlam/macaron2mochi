@@ -1,8 +1,8 @@
 <template>
 <div v-if="trip">
   <h3>Day to Day - {{trip.name}} <a href="/admin/itineraries/itinerary/add/" target="_blank" class="glyphicon glyphicon-plus" aria-hidden="true"></a></h3>
-  <div class="row">
-    <div class="col-md-2 itinerary" v-for="itinerary in trip.itineraries">
+  <div class="row" v-for="groupItinerary in trip.itineraries">
+    <div class="col-sm-2 itinerary" v-for="itinerary in groupItinerary">
       <div class="date">{{itinerary.date}}
         <a href="/admin/activities/activity/add/" target="_blank" class="glyphicon glyphicon-plus" aria-hidden="true"></a>
       </div>
@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style>
+div.col-sm-2 {
+  padding: 0;
+}
+
 div.itinerary div.date {
   border: 2px solid #ddd;
   font-weight: bold;
@@ -39,6 +43,7 @@ div.itinerary div.date {
 
 div.itinerary div.name {
   border: 1px solid #ddd;
+  border-top: none;
   font-size: 90%;
   text-align: center;
 }
