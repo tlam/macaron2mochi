@@ -13,7 +13,7 @@ class Itinerary(models.Model):
 
     class Meta:
         ordering = ['date']
+        verbose_name_plural = 'itineraries'
 
     def __unicode__(self):
         return u'{}'.format(self.name)
-

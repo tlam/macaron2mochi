@@ -25,9 +25,6 @@ SECRET_KEY = '31m&goih8h+st4#x@pd9e&+--s!hwo-m19ihz6m+d8lpp@&m21'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +37,8 @@ INSTALLED_APPS = [
     'macaron2mochi',
     'trips',
     'itineraries',
-    'activities'
+    'activities',
+    'categories'
 ]
 
 MIDDLEWARE = [

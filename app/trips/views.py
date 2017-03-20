@@ -35,6 +35,7 @@ def itineraries(request, trip_id):
                 'id': activity.id,
                 'name': activity.name,
                 'description': activity.description,
+                'icon': activity.category.icon,
                 'start_time': activity.start_time.strftime(time_format),
                 'end_time': activity.end_time.strftime(time_format),
                 'url': reverse('admin:activities_activity_change', args=(activity.pk,))
@@ -43,6 +44,7 @@ def itineraries(request, trip_id):
         itineraries.append({
             'id': itinerary.id,
             'name': itinerary.name,
+            'description': itinerary.description,
             'date': itinerary.date.strftime(date_format),
             'activities': activities,
         })

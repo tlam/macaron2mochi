@@ -9,7 +9,12 @@
       <div class="name">{{itinerary.name}}</div>
       <div class="list-group">
         <div v-for="activity in itinerary.activities" class="activity list-group-item">
-          <div class="time">{{activity.start_time}} - {{activity.end_time}}</div>
+          <div class="row">
+            <div class="col-sm-6 time">{{activity.start_time}} - {{activity.end_time}}</div>
+            <div class="col-sm-6">
+              <img class="icon pull-right" :src="'/static/fonts/' + activity.icon + '.png'" />
+            </div>
+          </div>
           <a :href="activity.url" target="_blank">{{activity.name}}</a>
           <div class="description">{{activity.description}}</div>
         </div>
@@ -56,5 +61,9 @@ div.activity div.description {
 div.activity div.time {
   font-size: 70%;
   font-weight: bold;
+}
+
+img.icon {
+  width: 20%;
 }
 </style>

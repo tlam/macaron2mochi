@@ -16,11 +16,12 @@ class Activity(models.Model):
     itinerary = models.ForeignKey('itineraries.Itinerary', on_delete=models.CASCADE, related_name='activities')
     name = models.CharField(max_length=255)
     description = models.TextField(default='', blank=True)
+    category = models.ForeignKey('categories.Category', on_delete=models.CASCADE, null=True)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
     directions = models.TextField(default='', blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, default='0.00')
     currency = models.CharField(max_length=3, choices=CURRENCIES, default='', blank=True)
-    start_time = models.TimeField()
-    end_time = models.TimeField()
     address = models.CharField(max_length=255, default='', blank=True)
     city = models.CharField(max_length=255, default='', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -28,6 +29,7 @@ class Activity(models.Model):
 
     class Meta:
         ordering = ['start_time']
+        verbose_name_plural = 'activities'
 
     def __unicode__(self):
         return u'{}'.format(self.name)
