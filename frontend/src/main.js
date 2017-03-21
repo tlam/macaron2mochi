@@ -4,12 +4,26 @@
 import axios from 'axios'
 import store from './store'
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './App.vue'
+import TripMap from './components/TripMap.vue'
+import Overview from './components/Overview.vue'
 
 Vue.prototype.$http = axios;
+Vue.use(VueRouter);
+
+const routes = [
+  {path: '/overview', component: Overview},
+  {path: '/map', component: TripMap}
+];
+
+const router = new VueRouter({
+  routes
+});
 
 new Vue({ // eslint-disable-line no-new
   el: '#app',
   store,
+  router,
   render: (h) => h(App)
 })

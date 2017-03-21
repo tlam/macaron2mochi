@@ -4,10 +4,11 @@
       <trip :trip="trip" v-on:tripSelected="setSelectedTrip"></trip>
     </div>
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">Overview</a></li>
-      <li role="presentation"><a href="#">Day to Day</a></li>
-      <li role="presentation"><a href="#">Map</a></li>
+      <li role="presentation" class="active"><a href="#">Day to Day</a></li>
+      <li role="presentation"><router-link to="/overview">Overview</router-link></li>
+      <li role="presentation"><router-link to="/map">Map</router-link></li>
     </ul>
+    <router-view></router-view>
     <overview :trip="selectedTrip"></overview>
     <itineraries :trip="selectedTrip"></itineraries>
   </div>

@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-sm-6 time">{{activity.start_time}} - {{activity.end_time}}</div>
             <div class="col-sm-6">
-              <img class="icon pull-right" :src="'/static/fonts/' + activity.icon + '.png'" />
+              <i :class="'pull-right fa ' + activity.icon"></i>
             </div>
           </div>
           <a :href="activity.url" target="_blank">{{activity.name}}</a>
@@ -61,9 +61,5 @@ div.activity div.description {
 div.activity div.time {
   font-size: 70%;
   font-weight: bold;
-}
-
-img.icon {
-  width: 20%;
 }
 </style>
